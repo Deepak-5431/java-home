@@ -1,20 +1,14 @@
 
 
--- User roles for permission management
 CREATE TYPE user_role AS ENUM ('ADMIN', 'MODERATOR', 'USER');
 
--- User account status
 CREATE TYPE user_status AS ENUM ('ACTIVE', 'SUSPENDED', 'PENDING', 'DELETED');
 
--- Post content types
 CREATE TYPE content_type AS ENUM ('TEXT', 'IMAGE', 'VIDEO', 'LINK', 'POLL');
 
--- Post privacy levels
 CREATE TYPE privacy_level AS ENUM ('PUBLIC', 'FRIENDS_ONLY', 'PRIVATE');
 
--- =============================================
--- Core Users Table
--- =============================================
+
 CREATE TABLE users (
                        id BIGSERIAL PRIMARY KEY,
                        username VARCHAR(50) UNIQUE NOT NULL,
@@ -179,7 +173,6 @@ CREATE INDEX idx_categories_parent_id ON categories(parent_id);
 CREATE INDEX idx_categories_slug ON categories(slug);
 CREATE INDEX idx_categories_active ON categories(is_active) WHERE is_active = TRUE;
 
--- Posts table indexes
 CREATE INDEX idx_posts_author_id ON posts(author_id);
 CREATE INDEX idx_posts_category_id ON posts(category_id);
 CREATE INDEX idx_posts_created_at ON posts(created_at DESC);
