@@ -1,4 +1,7 @@
 package com.commander.industryhub.server.user.model;
 
-public class UserRole {
+public enum UserRole {
+    ADMIN,
+    MODERATOR,
+    USER
 }
