@@ -16,13 +16,13 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User,Long>{
  Optional<User> findByEmail(String email);
  Optional<User> findByUsername(String username);
- Optional<User> findByIdandStatus(Long id,String status);
+ Optional<User> findByIdAndStatus(Long id, UserStatus status);
 
 
  boolean existsByEmail(String email);
  boolean existsByUsername(String username);
 
-//annotation to define custom query using jpa usimple could be made better
+//annotation to define custom query using jpa simple could be made better
  @Query(value="SELECT * FROM users u WHERE " +
          "u.username ILIKE CONCAT('%', :query ,'%') OR " +
          "u.email ILIKE CONCAT('%', :query ,'%')",
