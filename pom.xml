@@ -20,7 +20,7 @@
         <spring-modulith.version>1.4.3</spring-modulith.version>
 
         <mapstruct.version>1.6.3</mapstruct.version>
-        <lombok.version>1.18.36</lombok.version>
+        <lombok.version>1.18.42</lombok.version>
     </properties>
 
     <dependencies>

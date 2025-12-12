@@ -43,6 +43,8 @@ public class User {
     @Column(name = "email_verified_at")
     private Instant emailVerifiedAt;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private UserProfile userProfile;
     // Timestamps
     @Column(name = "created_at", nullable = false)
     private Instant createdAt = Instant.now();

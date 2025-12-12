@@ -28,4 +28,7 @@ public interface UserRepository extends JpaRepository<User,Long>{
          "u.email ILIKE CONCAT('%', :query ,'%')",
          nativeQuery = true)
  List<User> searchUsersBy(@Param("query") String query);
+
+ List<User> findByStatus(UserStatus status);
+ long countByStatus(UserStatus status);
 }
